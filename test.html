@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Title</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: "custom";
+    }
+
+    h4 {
+      padding: 1rem;
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1.5rem;
+    }
+
+    @font-face {
+      font-family: "custom";
+      src: url(./font.ttf) format("truetype");
+    }
+
+    input {
+      height: 2rem;
+      padding: 5px;
+      border: 0;
+      margin: 0;
+    }
+
+    .selection {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      max-width: 600px;
+      max-height: 1000px;
+    }
+
+    .player-container {
+      width: 200px;
+    }
+
+    .player-text {
+      width: 94%;
+    }
+
+    .player-colors {
+      display: grid;
+      grid-template-columns: repeat(5, auto);
+      grid-template-rows: repeat(2, auto);
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    button {
+      height: 2rem;
+      width: 2rem;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h4>[Allies] <span style="color: yellow">[</span><span class="title" style="color: grey">Title</span><span class="player" style="color: red">]Player</span>: test</h4>
+  </div>
+  <div class="selection">
+    <div class="title-container">
+      <p>Title</p>
+      <input class="title-color" type="color">
+      <input class="title-text" type="text">
+      <p>Background</p>
+      <input class="background-color" type="color">
+    </div>
+    <div class="player-container">
+      <p>Player</p>
+      <!-- <input class="player-color" type="color"> -->
+      <input class="player-text" type="text">
+      <div class="player-colors">
+        <button class="1" style="background-color: #ff0303"></button>
+        <button class="2" style="background-color: #0042ff"></button>
+        <button class="3" style="background-color: #1de7b9"></button>
+        <button class="4" style="background-color: #550181"></button>
+        <button class="5" style="background-color: #fefd01"></button>
+        <button class="6" style="background-color: #ff8b0e"></button>
+        <button class="7" style="background-color: #20c101"></button>
+        <button class="8" style="background-color: #e45bb1"></button>
+        <button class="9" style="background-color: #949696"></button>
+        <button class="10" style="background-color: #7ebef0"></button>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const title = document.querySelector('.title');
+  const titleText = document.querySelector('.title-text');
+  const titleColor = document.querySelector('.title-color');
+  const player = document.querySelector('.player');
+  const playerText = document.querySelector('.player-text');
+  const colorButtons = document.querySelectorAll('button');
+  const background = document.querySelector('body');
+  const backgroundColor = document.querySelector('.background-color');
+
+  titleText.addEventListener('input', () => {
+    title.innerText = titleText.value;
+  });
+
+  titleColor.addEventListener('input', () => {
+    title.style.color = titleColor.value;
+  });
+
+  playerText.addEventListener('input', () => {
+    player.innerText = ']'+playerText.value;
+  });
+
+  for (const button of colorButtons) {
+    button.addEventListener('click', () => {
+      player.style.color = button.style.backgroundColor;
+    });
+  };
+
+  background.addEventListener('input', () => {
+    background.style.backgroundColor = backgroundColor.value;
+  });
+</script>
+</html>
