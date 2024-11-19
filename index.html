@@ -88,17 +88,17 @@
 </head>
 <body>
   <div>
-    <h4>[Allies] <span class="player" style="color: red">[</span><span class="title" style="color: grey">Title</span><span class="player" style="color: red">]Player</span>: test</h4>
+    <h4>[Allies] <span class="player-color" style="color: red">[</span><span class="title" style="color: grey">Title</span><span class="player-color player" style="color: red">]Player</span>: test</h4>
   </div>
   <div class="selection">
     <div class="title-container">
       <p>Title</p>
-      <input class="title-text" type="text" maxlength="12">
+      <input class="title-text" type="text" maxlength="12" value="Title">
       <input class="title-color input-color" type="color" value="#808080">
     </div>
     <div class="player-container">
       <p>Player</p>
-      <input class="player-text" type="text">
+      <input class="player-text" type="text" value="Player">
       <div class="player-colors">
         <button class="1" style="background-color: #ff0303"></button>
         <button class="2" style="background-color: #0042ff"></button>
@@ -122,7 +122,8 @@
   const title = document.querySelector('.title');
   const titleText = document.querySelector('.title-text');
   const titleColor = document.querySelector('.title-color');
-  const player = document.querySelectorAll('.player');
+  const player = document.querySelector('.player');
+  const playerColors = document.querySelectorAll('.player-color');
   const playerText = document.querySelector('.player-text');
   const colorButtons = document.querySelectorAll('button');
   const background = document.querySelector('body');
@@ -142,7 +143,7 @@
 
   for (const button of colorButtons) {
     button.addEventListener('click', () => {
-      for (const playerColor of player) {
+      for (const playerColor of playerColors) {
         playerColor.style.color = button.style.backgroundColor;
       };
     });
