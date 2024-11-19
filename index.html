@@ -26,16 +26,30 @@
     }
 
     input {
+      cursor: pointer;
       height: 2rem;
       padding: 5px;
       border: 0;
       margin: 0;
     }
 
+    .input-color {
+      padding: 0;
+      border: 0;
+    }
+
     .selection {
       display: grid;
       max-width: 600px;
       max-height: 1000px;
+    }
+
+    .title-container {
+      width: 200px;
+    }
+
+    .title-color {
+      margin-top: 1rem;
     }
 
     .player-container {
@@ -58,6 +72,7 @@
       height: 2rem;
       width: 2rem;
       color: white;
+      cursor: pointer;
     }
 
     @media (min-width: 1000px) {
@@ -78,8 +93,8 @@
   <div class="selection">
     <div class="title-container">
       <p>Title</p>
-      <input class="title-color" type="color">
       <input class="title-text" type="text" maxlength="12">
+      <input class="title-color input-color" type="color" value="#808080">
     </div>
     <div class="player-container">
       <p>Player</p>
@@ -99,7 +114,7 @@
     </div>
     <div class="background-container">
       <p>Background</p>
-      <input class="background-color" type="color">
+      <input class="background-color input-color" type="color">
     </div>
   </div>
 </body>
