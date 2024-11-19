@@ -34,7 +34,6 @@
 
     .selection {
       display: grid;
-      grid-template-columns: 1fr 1fr;
       max-width: 600px;
       max-height: 1000px;
     }
@@ -65,6 +64,10 @@
       h4 {
         font-size: 2rem;
       }
+
+      .selection {
+      grid-template-columns: 1fr 1fr;
+      }
     }
   </style>
 </head>
@@ -77,8 +80,6 @@
       <p>Title</p>
       <input class="title-color" type="color">
       <input class="title-text" type="text" maxlength="12">
-      <p>Background</p>
-      <input class="background-color" type="color">
     </div>
     <div class="player-container">
       <p>Player</p>
@@ -96,13 +97,17 @@
         <button class="10" style="background-color: #7ebef0"></button>
       </div>
     </div>
+    <div class="background-container">
+      <p>Background</p>
+      <input class="background-color" type="color">
+    </div>
   </div>
 </body>
 <script>
   const title = document.querySelector('.title');
   const titleText = document.querySelector('.title-text');
   const titleColor = document.querySelector('.title-color');
-  const player = document.querySelector('.player');
+  const player = document.querySelectorAll('.player');
   const playerText = document.querySelector('.player-text');
   const colorButtons = document.querySelectorAll('button');
   const background = document.querySelector('body');
@@ -122,7 +127,9 @@
 
   for (const button of colorButtons) {
     button.addEventListener('click', () => {
-      player.style.color = button.style.backgroundColor;
+      for (const playerColor of player) {
+        playerColor.style.color = button.style.backgroundColor;
+      };
     });
   };
 
