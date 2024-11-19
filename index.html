@@ -13,7 +13,7 @@
 
     h4 {
       padding: 1rem;
-      font-size: 2rem;
+      font-size: 1.5rem;
     }
 
     p {
@@ -60,6 +60,12 @@
       width: 2rem;
       color: white;
     }
+
+    @media (min-width: 1000px) {
+      h4 {
+        font-size: 2rem;
+      }
+    }
   </style>
 </head>
 <body>
@@ -70,13 +76,12 @@
     <div class="title-container">
       <p>Title</p>
       <input class="title-color" type="color">
-      <input class="title-text" type="text">
+      <input class="title-text" type="text" maxlength="12">
       <p>Background</p>
       <input class="background-color" type="color">
     </div>
     <div class="player-container">
       <p>Player</p>
-      <!-- <input class="player-color" type="color"> -->
       <input class="player-text" type="text">
       <div class="player-colors">
         <button class="1" style="background-color: #ff0303"></button>
